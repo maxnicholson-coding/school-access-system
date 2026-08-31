@@ -1,0 +1,17 @@
+jdoe,123456,STUDENT
+qtest,Iamreal5820!,Student
+wrobinson,p4S$W0rD-Of-m/N3,STUDENT
+abridges,leidlsnegf,STUDENT
+hvaldez,BFFSforevs,STUDENT
+rcunningham,Ud8n)3dP2,STUDENT
+gbridges,LetMeIn,STUDENT
+sfitzgerald,Tuc6Gl9%Gba.,STUDENT
+bcoleman,Eagles2032!,STUDENT
+tdavidson,6dOm$uvI-c,STUDENT
+mcollins,Op3nSe$4Me!,STUDENT
+seymour,MathematicsRocks93,TEACHER
+rodriguez,Band-Geeks18!,TEACHER
+patterson,v*r3QJno(cCtb,TEACHER
+reynolds,wr0nG-Co1n-cHe(K-c!osE,TEACHER
+admin3,SecureAdminAccess903+4!,ADMIN
+admin24,SecureAdminAccess45+2-87!,ADMIN
