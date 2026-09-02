@@ -1,0 +1,15 @@
+PUBLIC|Welcome to the school.
+PUBLIC|Football game this Friday.
+STUDENT|Algebra worksheet 3.2 due tomorrow.
+STUDENT|Donate tissues to your class.
+STUDENT|Project checkpoint coming up.
+STUDENT|Science test on Friday.
+STUDENT|Pep rally next week.
+TEACHER|New classroom policies.
+TEACHER|All grades are due next week.
+TEACHER|English packet answer key.
+TEACHER|PTO meetings Oct. 14th.
+TEACHER|History test copies.
+ADMIN|System Configuration.
+ADMIN|Software Updates.
+ADMIN|What to do with suspicious activity.
