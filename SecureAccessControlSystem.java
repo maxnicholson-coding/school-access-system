@@ -15,12 +15,12 @@ public class SecureAccessControlSystem
         String inputPassword = input.nextLine();
         //checks if the account is real
         if (checkLogin(inputUsername, inputPassword) == true) {
-            System.out.println("LOGIN SUCCESSFUL");
+            System.out.println("LOGIN SUCCESSFUL\n");
         } else {
-            System.out.println("LOGIN FAILED"); 
+            System.out.println("LOGIN FAILED\n"); 
         }
-        //tester
-        System.out.println(userRole);
+        //print information based on access level
+        printInformation(userRole);
     }
     
     public static boolean checkLogin(String user, String pass) { //checks if a username and password match
@@ -51,6 +51,36 @@ public class SecureAccessControlSystem
         }
     }
     
+    public static void printInformation(String role) { //displays all information a given role can see
+        printInfo("PUBLIC");
+        if (role.equals("STUDENT")) {
+            printInfo("STUDENT");
+        } else if (role.equals("TEACHER")) {
+            printInfo("STUDENT");
+            printInfo("TEACHER");
+        } else if (role.equals("ADMIN")) {
+            printInfo("STUDENT");
+            printInfo("TEACHER");
+            printInfo("ADMIN");
+        }
+    }
+    
+    public static void printInfo(String level) { //displays all information of a given access level
+        File file = new File("protected_data.txt");
+        try {
+            Scanner fileReader = new Scanner(file);
+            while (fileReader.hasNextLine()) {
+                //parses access level and message for each line of protected_data.txt
+                String line = fileReader.nextLine();
+                parseInfo(line, level);
+            }
+            fileReader.close();
+        }
+        catch (FileNotFoundException e) { //stops if the file if missing
+            System.out.println("File Not Found.");
+        }
+    }
+    
     public static void displayUsers() { //displays the entire contents of users.txt; currently unused
         File file = new File("users.txt");
         try {
@@ -64,6 +94,16 @@ public class SecureAccessControlSystem
         }
         catch (FileNotFoundException e) { //stops if the file if missing
             System.out.println("File Not Found.");
+        }
+    }
+    
+    public static void parseInfo(String info, String level) {
+        //parses and prints a given message if it matches the access level
+        String[] data = info.split("\\|");
+        String access = data[0];
+        String message = data[1];
+        if (access.equals(level)) {
+            System.out.println(message);
         }
     }
 }
