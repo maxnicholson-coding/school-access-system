@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class SecureAccessControlSystem
 {
+    //initialize variable for the role of the current user
     public static String userRole = "none";
+    
     public static void main(String[] args)
     {
         //prompt user for username and password
@@ -14,13 +16,13 @@ public class SecureAccessControlSystem
         System.out.println("Enter password:");
         String inputPassword = input.nextLine();
         //checks if the account is real
-        if (checkLogin(inputUsername, inputPassword) == true) {
+        if (checkLogin(inputUsername, inputPassword)) {
             System.out.println("LOGIN SUCCESSFUL\n");
+            //print information based on access level
+            printInformation(userRole);
         } else {
             System.out.println("LOGIN FAILED\n"); 
         }
-        //print information based on access level
-        printInformation(userRole);
     }
     
     public static boolean checkLogin(String user, String pass) { //checks if a username and password match
@@ -81,6 +83,16 @@ public class SecureAccessControlSystem
         }
     }
     
+    public static void parseInfo(String info, String level) { 
+        //parses and prints a given message if it matches the access level
+        String[] data = info.split("\\|");
+        String access = data[0];
+        String message = data[1];
+        if (access.equals(level)) {
+            System.out.println(message);
+        }
+    }
+    
     public static void displayUsers() { //displays the entire contents of users.txt; currently unused
         File file = new File("users.txt");
         try {
@@ -94,16 +106,6 @@ public class SecureAccessControlSystem
         }
         catch (FileNotFoundException e) { //stops if the file if missing
             System.out.println("File Not Found.");
-        }
-    }
-    
-    public static void parseInfo(String info, String level) {
-        //parses and prints a given message if it matches the access level
-        String[] data = info.split("\\|");
-        String access = data[0];
-        String message = data[1];
-        if (access.equals(level)) {
-            System.out.println(message);
         }
     }
 }
